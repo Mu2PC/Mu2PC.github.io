@@ -1,2 +1,1276 @@
-The audio-visual samples will be updated in a few days.
- <a href="https://github.com/Mu2PC/Mu2PC">Code & Data:</a> https://github.com/Mu2PC/Mu2PC
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Mu2PC">
+  <meta property="og:title" content="Mu2PC"/>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  
+  <title>Mu2PC</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/audio-table.css">
+  <link rel="stylesheet" type="text/css" href="static/css/dropdown_style.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Mu2PC: A Multilingual Multimodal Parallel Corpus for Audio-Visual Speech-to-Any Translation</h1>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+	  
+	  <section class="section hero is-light">
+	    <div class="container is-max-desktop">
+	      <!-- Abstract. -->
+	      <div class="columns is-centered has-text-centered">
+		<div class="column is-four-fifths">
+		  <h2 class="title is-3">Abstract</h2>
+		  <div class="content has-text-justified">
+		    <p>
+				Automatic Audio-Visual Speech-to-Any Translation is dedicated to generating multimodal translations of text, speech, and talking heads in a target language. Despite the success of speech-to-text translation (ST) and speech-to-speech translation (S2ST), two major obstacles still remain: 1) the translation models encounter challenges integrating visual modality; 2) the synthesis of translated talking heads has yet to be developed. To tackle the above problems, we 1) introduce <b>Mu2PC</b>, a <b>Mu</b>ltilingual <b>Mu</b>ltimodal <b>P</b>arallel <b>C</b>orpus, encompassing parallel data pairs from 4 languages to English across three modalities; 2) propose audio-visual speech-to-vision translation (AV-S2VT) task for the first time, aiming to synthesize translated talking heads; 3) extend the scope of ST and S2ST to AVST and AV-S2ST by incorporating visual speech, thereby creating a comprehensive translation system capable of achieving audio-visual speech-to-any translation. To facilitate the use and demonstrate the quality of Mu2PC, we conduct four benchmark experiments: audio-visual speech recognition (AVSR), and audio-visual speech translation task groups (AVST, AV-S2ST, and AV-S2VT). Audio-visual samples and the corpus are available at <a href="https://Mu2PC.github.io/"><i>https://Mu2PC.github.io/</i></a>
+		    </p>
+		  </div>
+		</div>
+	      </div>
+	      <!--/ Abstract. -->
+	    </div>
+	  </section>
+
+	  <section class="hero">
+		  <div class="hero-body">
+			  <div class="container">
+			  <h1 class="title is-3">Audio-Visual Speech-to-Any Translation</h1>
+		<h4 class="title is-4">Es_En</h4>
+		<div class="grid-container">
+			<table >
+				<tr >
+					<th rowspan="2" colspan="2"></th>
+					<th colspan="2">Ground truth</th>
+					<th colspan="2">Predictions</th>
+				</tr>
+				<tr >
+<!--					<th colspan="2"></th>-->
+					<th>Source Language Content</th>
+					<th>Target Language Content</th>
+					<th>Audio-Visual(AV)</th>
+					<th>Audio(A)</th>
+				</tr>
+				<!-- <tr>
+					<th colspan="6" style="text-align:left">Sample 1: </th>
+				</tr> -->
+				<tr >
+					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>
+					<th style=" vertical-align:middle;" width="10%">Video </th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_1/src.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_1/en.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_1/out.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_1/out_a.mp4" type="video/mp4">
+						</video>
+					</th>
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_02\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_03\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+				</tr>
+				<tr >
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Audio </th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_1/src.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_1/en.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_1/out.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_1/out_a.wav"	type="audio/wav"></audio>
+					</th>
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_02\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_03\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+				</tr>
+				<tr>
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Transcription </th>
+					<td> Viene bien a los demás porque disfrutan </td>
+					<td> But for others as well because they enjoy </td>
+					<td> It is good for others because they enjoy </td>
+					<td> He comes seeing others because we enjoy </td>
+				</tr>
+<!--				<tr > -->
+<!--					<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					<td> i was the first non family investor in amazon </td>-->
+<!--					<td> fui el primer inversor no familiar en amazon </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--				</tr>-->
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> fue el primer inversor familiar en amazon </td>-->
+<!--					<td> fue el primer inversor familiar no runda en amazonas </td>-->
+<!--					<td> fue el primer investigador del cáncer de familia en absoluto </td>-->
+<!--				</tr>-->
+
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;" width="10%">Sample 2: </th>-->
+<!--					<th style=" vertical-align:middle;" width="20%">-->
+<!--						<video  controls style="width: 200px;">-->
+<!--							<source src="avtranspeech_results/En_Es/task_01_new/2_source_video.mp4" type="video/mp4">-->
+<!--						</video>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/2_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_01_new\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_02\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_03\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--				</tr>-->
+<!--				<tr > -->
+<!--					<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					<td> science fiction is one of the greatest and most effective forms of political writing </td>-->
+<!--					<td> la ciencia ficción es una de las formas más grandes y efectivas de escritura política </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--				</tr>-->
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> la ciencia ficción es una de las formas más grandes y efectivas de escritura política </td>-->
+<!--					<td> la ciencia ficción es una de las formas más grandes y efectivas de la escritura política </td>-->
+<!--					<td> la visión de la escala es una de las formas y más efectivas y efectivas de la escritura política </td>-->
+<!--				</tr>-->
+
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;" width="10%">Sample 3: </th>-->
+<!--					<th style=" vertical-align:middle;" width="20%">-->
+<!--						<video  controls style="width: 200px;">-->
+<!--							<source src="avtranspeech_results/En_Es/task_01_new/3_source_video.mp4" type="video/mp4">-->
+<!--						</video>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/3_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_01_new\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_02\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_03\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--				</tr>-->
+<!--				<tr > -->
+<!--					<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					<td> and then i thought there's got to be a better way </td>-->
+<!--					<td> y luego pensé que tenía que haber una mejor manera </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--				</tr>-->
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> y luego pensé que tenía que haber una mejor manera </td>-->
+<!--					<td> y luego pensé que tiene que ver una mejor manera </td>-->
+<!--					<td> que pensé que tiene que ser una mejor manera </td>-->
+<!--				</tr>-->
+
+
+				<!-- <tr>
+					<th colspan="6" style="text-align:left">Sample 1: </th>
+				</tr> -->
+				<tr >
+					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 2: </th>
+					<th style=" vertical-align:middle;" width="10%">Video </th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_2/src.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_2/en.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_2/out.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/es_en_2/out_a.mp4" type="video/mp4">
+						</video>
+					</th>
+				</tr>
+				<tr >
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Audio </th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_2/src.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_2/en.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_2/out.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/es_en_2/out_a.wav"	type="audio/wav"></audio>
+					</th>
+				</tr>
+				<tr>
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Transcription </th>
+					<td> La iluminación está mala ni siquiera </td>
+					<td> The lighting is bad not even </td>
+					<td> The lighting is bad not even </td>
+					<td> The lighting is bad and does not work </td>
+				</tr>
+			</table>
+		</div>
+
+		<h4 class="title is-4">Fr_En</h4>
+		<div class="grid-container">
+			<table >
+				<tr >
+					<th rowspan="2" colspan="2"></th>
+					<th colspan="2">Ground truth</th>
+					<th colspan="2">Predictions</th>
+				</tr>
+				<tr >
+<!--					<th colspan="2"></th>-->
+					<th>Source Language Content</th>
+					<th>Target Language Content</th>
+					<th>Audio-Visual(AV)</th>
+					<th>Audio(A)</th>
+				</tr>
+				<!-- <tr>
+					<th colspan="6" style="text-align:left">Sample 1: </th>
+				</tr> -->
+				<tr >
+					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 3: </th>
+					<th style=" vertical-align:middle;" width="10%">Video </th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_3/src.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_3/en.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_3/out.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_3/out_a.mp4" type="video/mp4">
+						</video>
+					</th>
+				</tr>
+				<tr >
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Audio </th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_3/src.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_3/en.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_3/out.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_3/out_a.wav"	type="audio/wav"></audio>
+					</th>
+				</tr>
+				<tr>
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Transcription </th>
+					<td> Un jour je serai professeur en Angleterre </td>
+					<td> One day I will be a teacher in England </td>
+					<td> One day I will be a teacher in England </td>
+					<td> One day I will be an English teacher </td>
+				</tr>
+				<!-- <tr>
+					<th colspan="6" style="text-align:left">Sample 1: </th>
+				</tr> -->
+				<tr >
+					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 4: </th>
+					<th style=" vertical-align:middle;" width="10%">Video </th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_4/src.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_4/en.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_4/out.mp4" type="video/mp4">
+						</video>
+					</th>
+					<th style=" vertical-align:middle;" width="20%">
+						<video  controls style="width: 250px;">
+							<source src="mu2pc_results/fr_en_4/out_a.mp4" type="video/mp4">
+						</video>
+					</th>
+				</tr>
+				<tr >
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Audio </th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_4/src.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_4/en.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_4/out.wav"	type="audio/wav"></audio>
+					</th>
+					<th style=" vertical-align:middle;">
+						<audio controls style="width: 250px;"><source src="mu2pc_results/fr_en_4/out_a.wav"	type="audio/wav"></audio>
+					</th>
+				</tr>
+				<tr>
+<!--					<th rowspan="3" style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+					<th style=" vertical-align:middle;" width="10%">Transcription </th>
+					<td> Faut l'admettre mais surtout il faut pas s'en satisfaire </td>
+					<td> We must admit it but above all we must not be satisfied with it </td>
+					<td> We have to admit it but above all we must not be satisfied with it </td>
+					<td> We have to admit it but above all you have to not without satisfying </td>
+				</tr>
+			</table>
+		</div>
+
+	    </div>
+		</div>
+		</div>
+
+<!--		<div class="hero-body">-->
+<!--			<div class="container">-->
+<!--		  <h3 class="title is-4">En_Fr</h3>-->
+<!--  -->
+<!--		  <div class="grid-container">-->
+<!--			  <table >-->
+<!--				  <tr >-->
+<!--					  <th></th>-->
+<!--					  <th colspan="2">Ground truth</th>-->
+<!--					  <th colspan="3">Predictions</th>-->
+<!--				  </tr>-->
+<!--				  <tr >-->
+<!--					  <th></th>-->
+<!--					  <th>Source Video</th>-->
+<!--					  <th>Target Audio</th>-->
+<!--					<th>Audio-Visual (AV)</th>-->
+<!--					<th>Audio (A)</th>-->
+<!--					<th>Visual (V)</th>-->
+<!--				  </tr>-->
+<!--				  &lt;!&ndash; <tr>-->
+<!--					  <th colspan="6" style="text-align:left">Sample 1: </th>-->
+<!--				  </tr> &ndash;&gt;-->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+<!--					  <th style=" vertical-align:middle;" width="20%">-->
+<!--						  <video  controls style="width: 200px;">-->
+<!--							  <source src="avtranspeech_results\En_Fr\task_01\1_source_video.mp4" type="video/mp4">-->
+<!--						  </video>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/1_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_01\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_02\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_03\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--				  </tr>-->
+<!--				  <tr > -->
+<!--					  <th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					  <td> i was the first non family investor in amazon </td>-->
+<!--					  <td> j’ai été le premier investisseur non familial sur amazon </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--				  </tr>-->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> jétais le premier investisseur non familial amazonie </td>-->
+<!--					  <td> jétais le premier investisseur non familial en amazone </td>-->
+<!--					  <td> jai été le premier investisseurs non investisseur non familial en absant </td>-->
+<!--				  </tr>-->
+<!--  -->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;" width="10%">Sample 2: </th>-->
+<!--					  <th style=" vertical-align:middle;" width="20%">-->
+<!--						  <video  controls style="width: 200px;">-->
+<!--							  <source src="avtranspeech_results\En_Fr\task_01\2_source_video.mp4" type="video/mp4">-->
+<!--						  </video>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/2_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_01\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_02\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_03\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--				  </tr>-->
+<!--				  <tr > -->
+<!--					  <th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					  <td> and the soldier on the front tank said we have unconditional orders to destroy this </td>-->
+<!--					  <td> et le soldat sur le char de front a dit que nous avions des ordres inconditionnels pour détruire cela </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--				  </tr>-->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> le soldat sur le premier réservant a dit que nous avons des ordres inconditionnels pour détruire cela </td>-->
+<!--					  <td> le soldat sur le premier ban a dit que nous avons des ordres non conditionnels pour détruire cela </td>-->
+<!--					  <td> le soldat a dit que nous avons des ordres conditionnels à détruit pour détruire ce </td>-->
+<!--				  </tr>-->
+<!--  -->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;" width="10%">Sample 3: </th>-->
+<!--					  <th style=" vertical-align:middle;" width="20%">-->
+<!--						  <video  controls style="width: 200px;">-->
+<!--							  <source src="avtranspeech_results\En_Fr\task_01\3_source_video.mp4" type="video/mp4">-->
+<!--						  </video>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/3_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_01\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_02\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_03\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--				  </tr>-->
+<!--				  <tr > -->
+<!--					  <th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					  <td> we met men where they were at and we built a program </td>-->
+<!--					  <td> nous avons rencontré des hommes là où ils étaient et nous avons construit un programme </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--				  </tr>-->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> nous avons rencontré des hommes où ils étaient et nous avons construit un programme </td>-->
+<!--					  <td> nous avons rencontré des hommes où ils étaient atés et nous avons construit un programme	</td>-->
+<!--					  <td> nous avons rencontré des hommes lorsquils sétaient agis et que nous avons construit un programme </td>-->
+<!--				  </tr>-->
+<!--  -->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;" width="10%">Sample 4: </th>-->
+<!--					  <th style=" vertical-align:middle;" width="20%">-->
+<!--						  <video  controls style="width: 200px;">-->
+<!--							  <source src="avtranspeech_results\En_Fr\task_01\4_source_video.mp4" type="video/mp4">-->
+<!--						  </video>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/4_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_01\4_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_02\4_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--					  <th style=" vertical-align:middle;">-->
+<!--						  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_03\4_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					  </th>-->
+<!--				  </tr>-->
+<!--				  <tr > -->
+<!--					  <th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					  <td> so since then i've been the bridge and a lot of people have walked over me </td>-->
+<!--					  <td> donc, depuis lors, je suis le pont et beaucoup de gens m’ont marché dessus </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--				  </tr>-->
+<!--				  <tr >-->
+<!--					  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					  <td> </td>-->
+<!--					  <td> </td>-->
+<!--					  <td> donc depuis je suis le pont et beaucoup de gens sont marché </td>-->
+<!--					  <td> donc depuis lors je suis dans le pont et beaucoup de gens montent en franchis	</td>-->
+<!--					  <td> elle m'a donc donné une image beaucoup de gens au-dessus de moi </td>-->
+<!--				  </tr>-->
+<!--  -->
+<!--			  </table>-->
+<!--		  </div>-->
+<!--		  </div>-->
+<!--		  </div>-->
+<!--		  </div>-->
+	  </section>
+
+<!--	  <section class="hero">-->
+<!--		<div class="hero-body">-->
+<!--			<div class="container">-->
+<!--			<h2 class="title is-3">B. Low Resource Evaluation</h2>-->
+<!--	  <h3 class="title is-4">En_Es</h3>-->
+<!--	  <div class="grid-container">-->
+<!--		  <table >-->
+<!--			  <tr >-->
+<!--				  <th></th>-->
+<!--				  <th colspan="2">Ground truth</th>-->
+<!--				  <th colspan="4">Predictions</th>-->
+<!--			  </tr>-->
+<!--			  <tr >-->
+<!--				<th></th>-->
+<!--				<th></th>-->
+<!--				<th></th>-->
+<!--				<th colspan="2">10h</th>-->
+<!--				<th colspan="2">30h</th>-->
+<!--			</tr>-->
+<!--			  <tr >-->
+<!--				  <th></th>-->
+<!--				  <th>Source: Audio-Visual (AV)</th>-->
+<!--				  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--			  </tr>-->
+<!--			  &lt;!&ndash; <tr>-->
+<!--				  <th colspan="6" style="text-align:left">Sample 1: </th>-->
+<!--			  </tr> &ndash;&gt;-->
+<!--			  <tr >-->
+<!--				  <th style=" vertical-align:middle;" width="10%" >Sample 1: </th>-->
+<!--				  <th style=" vertical-align:middle;" width="20%" >-->
+<!--					  <video  controls style="width: 200px;">-->
+<!--						  <source src="avtranspeech_results/En_Es/task_01_new/1_source_video.mp4" type="video/mp4">-->
+<!--					  </video>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;" >-->
+<!--					  <audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/1_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_06_10h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_08_10h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_06\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_08\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--			  </tr>-->
+<!--			  <tr > -->
+<!--				  <th style=" vertical-align:middle;"> Reference: </th>-->
+<!--				  <td> i was the first non family investor in amazon </td>-->
+<!--				  <td> fui el primer inversor no familiar en amazon </td>-->
+<!--				  <td> </td>-->
+<!--				  <td> </td>-->
+<!--				  <td> </td>-->
+<!--			  </tr>-->
+<!--			  <tr >-->
+<!--				  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--				  <td> </td>-->
+<!--				  <td> </td>-->
+<!--				  <td> estaba el primera camino primera investigación </td>-->
+<!--				  <td> fue el primer investigación nofamiliar en amazonda </td>-->
+<!--				  <td> estaba el primer nada familiar por enamosmazona </td>-->
+<!--				  <td> fue el primer investigador de investigación de familia en amazón </td>-->
+<!--			  </tr>-->
+<!--			  <tr >-->
+<!--				<th></th>-->
+<!--				<th>Source: Visual (V)</th>-->
+<!--				<th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--			</tr>-->
+<!--			  <tr>-->
+<!--				<th style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+<!--				  <th style=" vertical-align:middle;" width="20%">-->
+<!--					  <video  controls style="width: 200px;">-->
+<!--						  <source src="avtranspeech_results/En_Es/task_01_new/1_source_video_silence.mp4" type="video/mp4">-->
+<!--					  </video>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/1_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_07_10h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_018\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_07\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				  <th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_018_30h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--			  </tr>-->
+<!--			  <tr > -->
+<!--				<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--				<td> i was the first non family investor in amazon </td>-->
+<!--				<td> fui el primer inversor no familiar en amazon </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--			</tr>-->
+<!--			<tr >-->
+<!--				<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> estaba primera vez que la primera vez conversación de nuevo </td>-->
+<!--				<td> yo era con primeramente familiar y el final </td>-->
+<!--				<td> yo era la primera familia en cámara </td>-->
+<!--				<td> era el primer persona sastre en namero de la zona </td>-->
+<!--			</tr>-->
+<!--			  <tr >-->
+<!--				<th></th>-->
+<!--				<th></th>-->
+<!--				<th></th>-->
+<!--				<th colspan="2">10h</th>-->
+<!--				<th colspan="2">30h</th>-->
+<!--			</tr>-->
+<!--			  <tr >-->
+<!--				  <th></th>-->
+<!--				  <th>Source: Audio-Visual (AV)</th>-->
+<!--				  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--			  </tr>-->
+<!--			<tr >-->
+<!--				<th style=" vertical-align:middle;" width="10%" >Sample 2: </th>-->
+<!--				<th style=" vertical-align:middle;" width="20%" >-->
+<!--					<video  controls style="width: 200px;">-->
+<!--						<source src="avtranspeech_results/En_Es/task_01_new/2_source_video.mp4" type="video/mp4">-->
+<!--					</video>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;" >-->
+<!--					<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/2_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_06_10h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_08_10h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_06\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--				  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_08\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			  </th>-->
+<!--			</tr>-->
+<!--			<tr > -->
+<!--				<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--				<td> science fiction is one of the greatest and most effective forms of political writing </td>-->
+<!--				<td> la ciencia ficción es una de las formas más grandes y efectivas de escritura política </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--			</tr>-->
+<!--			<tr >-->
+<!--				<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> la ciencia es una de las bactivas es uno de los mayores acectivas y el colectivo  </td>-->
+<!--				<td> la científica es una de las mayores formas y más efectivas de la escritura política </td>-->
+<!--				<td> la ciencia -ficción es uno de los más efectivos y más efectivos del derecho político </td>-->
+<!--				<td> la científica es una de las mayores más grandes y más efectivas de la escritura política </td>-->
+<!--			</tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Visual (V)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--			<tr>-->
+<!--			  <th style=" vertical-align:middle;" width="10%">Sample 2: </th>-->
+<!--				<th style=" vertical-align:middle;" width="20%">-->
+<!--					<video  controls style="width: 200px;">-->
+<!--						<source src="avtranspeech_results/En_Es/task_01_new/2_source_video_silence.mp4" type="video/mp4">-->
+<!--					</video>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/2_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_07_10h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_018\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_07\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--				  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_018_30h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			  </th>-->
+<!--			</tr>-->
+<!--			<tr > -->
+<!--				<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--				<td> science fiction is one of the greatest and most effective forms of political writing </td>-->
+<!--				<td> la ciencia ficción es una de las formas más grandes y efectivas de escritura política </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--			</tr>-->
+<!--		  <tr >-->
+<!--			  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--			  <td> </td>-->
+<!--			  <td> </td>-->
+<!--			  <td> la investigación es una de las formas cuando las personas anfectadas por la declinada política </td>-->
+<!--			  <td> la mayoría de las visiones es una de las formas más efectivas de la forma más lítica </td>-->
+<!--			  <td> la mayoría de las formas es una de las mayores y más efectivas formas políticas </td>-->
+<!--			  <td> la escarta es uno de los mayores mejores efectivos y más forma de la política política </td>-->
+<!--		  </tr>-->
+<!--			  <tr >-->
+<!--				<th></th>-->
+<!--				<th></th>-->
+<!--				<th></th>-->
+<!--				<th colspan="2">10h</th>-->
+<!--				<th colspan="2">30h</th>-->
+<!--			</tr>-->
+<!--			  <tr >-->
+<!--				  <th></th>-->
+<!--				  <th>Source: Audio-Visual (AV)</th>-->
+<!--				  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--			  </tr>-->
+<!--		  <tr >-->
+<!--			<th style=" vertical-align:middle;" width="10%" >Sample 3: </th>-->
+<!--			<th style=" vertical-align:middle;" width="20%" >-->
+<!--				<video  controls style="width: 200px;">-->
+<!--					<source src="avtranspeech_results/En_Es/task_01_new/3_source_video.mp4" type="video/mp4">-->
+<!--				</video>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;" >-->
+<!--				<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/3_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_06_10h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_08_10h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_06\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--			  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_08\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--		  </th>-->
+<!--		</tr>-->
+<!--		<tr > -->
+<!--			<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--			<td> and then i thought there's got to be a better way </td>-->
+<!--			<td> y luego pensé que tenía que haber una mejor manera </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--		</tr>-->
+<!--		<tr >-->
+<!--			<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--			<td> y luego pensé que ver una pensamiento mejor con un camino  </td>-->
+<!--			<td> y luego pensar que tiene que haber una forma mejor </td>-->
+<!--			<td> y luego pensé que esto conseguir una mejor manera </td>-->
+<!--			<td> y luego pensé que esto tiene que ver una forma mejor </td>-->
+<!--		</tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Visual (V)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--		<tr>-->
+<!--		  <th style=" vertical-align:middle;" width="10%">Sample 3: </th>-->
+<!--			<th style=" vertical-align:middle;" width="20%">-->
+<!--				<video  controls style="width: 200px;">-->
+<!--					<source src="avtranspeech_results/En_Es/task_01_new/3_source_video_silence.mp4" type="video/mp4">-->
+<!--				</video>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Es/task_01_new/3_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_07_10h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_018\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_07\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--			  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Es\task_018_30h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--		  </th>-->
+<!--		</tr>-->
+<!--		<tr > -->
+<!--			<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--			<td> and then i thought there's got to be a better way </td>-->
+<!--			<td> y luego pensé que tenía que haber una mejor manera </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--		</tr>-->
+<!--	  <tr >-->
+<!--		  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--		  <td> </td>-->
+<!--		  <td> </td>-->
+<!--		  <td> entonces pensado que este pensar mejor para mejor con la mejor </td>-->
+<!--		  <td> pensé que esto es en mejor mejor manera </td>-->
+<!--		  <td> que pensé que tengo una mejor manera </td>-->
+<!--		  <td> que pensé que esto se puede ser de mejor manera </td>-->
+<!--	  </tr>-->
+
+<!--		  </table>-->
+<!--	  </div>-->
+<!--	  </div>-->
+<!--	  </div>-->
+<!--	  </div>-->
+
+<!--	  <div class="hero-body">-->
+<!--		  <div class="container">-->
+<!--		<h2 class="title is-4">En_Fr</h2>-->
+
+<!--		<div class="grid-container">-->
+<!--			<table >-->
+<!--				<tr >-->
+<!--					<th></th>-->
+<!--					<th colspan="2">Ground truth</th>-->
+<!--					<th colspan="4">Predictions</th>-->
+<!--				</tr>-->
+<!--				<tr >-->
+<!--				  <th></th>-->
+<!--				  <th></th>-->
+<!--				  <th></th>-->
+<!--				  <th colspan="2">10h</th>-->
+<!--				  <th colspan="2">30h</th>-->
+<!--			  </tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Audio-Visual (AV)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--				&lt;!&ndash; <tr>-->
+<!--					<th colspan="6" style="text-align:left">Sample 1: </th>-->
+<!--				</tr> &ndash;&gt;-->
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;" width="10%" >Sample 1: </th>-->
+<!--					<th style=" vertical-align:middle;" width="20%" >-->
+<!--						<video  controls style="width: 200px;">-->
+<!--							<source src="avtranspeech_results/En_Fr/task_01/1_source_video.mp4" type="video/mp4">-->
+<!--						</video>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;" >-->
+<!--						<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/1_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_06_10h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_08_10h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_06\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_08\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				</tr>-->
+<!--				<tr > -->
+<!--					<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					<td> i was the first non family investor in amazon </td>-->
+<!--					<td> j’ai été le premier investisseur non familial sur amazon </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--				</tr>-->
+<!--				<tr >-->
+<!--					<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> jétais la première commandeant famille avancer  </td>-->
+<!--					<td> jétais le premier investisseur de no famille dans la mazonda </td>-->
+<!--					<td> j'étais la première famille de nantcité osama uniso </td>-->
+<!--					<td> jétais le premier investisseur de nos famille dans la mazonda </td>-->
+<!--				</tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Visual (V)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--				<tr>-->
+<!--				  <th style=" vertical-align:middle;" width="10%">Sample 1: </th>-->
+<!--					<th style=" vertical-align:middle;" width="20%">-->
+<!--						<video  controls style="width: 200px;">-->
+<!--							<source src="avtranspeech_results/En_Fr/task_01/1_source_video_silence.mp4" type="video/mp4">-->
+<!--						</video>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/1_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_07_10h\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_018\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--						<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_07\1_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--					</th>-->
+<!--					<th style=" vertical-align:middle;">-->
+<!--					  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_018_30h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				  </th>-->
+<!--				</tr>-->
+<!--				<tr > -->
+<!--					<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--					<td> i was the first non family investor in amazon </td>-->
+<!--					<td> j’ai été le premier investisseur non familial sur amazon </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--					<td> </td>-->
+<!--				</tr>-->
+<!--			  <tr >-->
+<!--				  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--				  <td> </td>-->
+<!--				  <td> </td>-->
+<!--				  <td> jai été la première are calcul tant de familles pandes cepte année </td>-->
+<!--				  <td> jétais la première famille nobai et investon le détruit </td>-->
+<!--				  <td> jai été la première fois de travaill environnement </td>-->
+<!--				  <td> jétais la première fois de la première fois de distance </td>-->
+<!--			  </tr>-->
+<!--			 <tr >-->
+<!--				  <th></th>-->
+<!--				  <th></th>-->
+<!--				  <th></th>-->
+<!--				  <th colspan="2">10h</th>-->
+<!--				  <th colspan="2">30h</th>-->
+<!--			  </tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Audio-Visual (AV)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--			  <tr >-->
+<!--				<th style=" vertical-align:middle;" width="10%" >Sample 2: </th>-->
+<!--				<th style=" vertical-align:middle;" width="20%" >-->
+<!--					<video  controls style="width: 200px;">-->
+<!--						<source src="avtranspeech_results/En_Fr/task_01/2_source_video.mp4" type="video/mp4">-->
+<!--					</video>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;" >-->
+<!--					<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/2_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_06_10h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_08_10h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_06\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--				  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_08\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			  </th>-->
+<!--			</tr>-->
+<!--			<tr > -->
+<!--				<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--				<td> and the soldier on the front tank said we have unconditional orders to destroy this </td>-->
+<!--				<td> et le soldat sur le char de front a dit que nous avions des ordres inconditionnels pour détruire cela </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--			</tr>-->
+<!--			<tr >-->
+<!--				<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> ils sont didevance hauteor nous avons dit que nous avons des contanus de sommets à distributer à ce jeu  </td>-->
+<!--				<td> le soldat sur le cart davant a dit que nous avons des andres sans conditionnels de détruire cela </td>-->
+<!--				<td> le frontelorlesodar dit nous avons des organisations conditionnelles pour des trécors </td>-->
+<!--				<td> le soldat de lavant a dit que nous avons des ordres sans conditionnels de détruire cela </td>-->
+<!--			</tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Visual (V)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--			<tr>-->
+<!--			  <th style=" vertical-align:middle;" width="10%">Sample 2: </th>-->
+<!--				<th style=" vertical-align:middle;" width="20%">-->
+<!--					<video  controls style="width: 200px;">-->
+<!--						<source src="avtranspeech_results/En_Fr/task_01/2_source_video_silence.mp4" type="video/mp4">-->
+<!--					</video>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/2_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_07_10h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_018\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--					<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_07\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--				</th>-->
+<!--				<th style=" vertical-align:middle;">-->
+<!--				  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_018_30h\2_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			  </th>-->
+<!--			</tr>-->
+<!--			<tr > -->
+<!--				<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--				<td> and the soldier on the front tank said we have unconditional orders to destroy this </td>-->
+<!--				<td> et le soldat sur le char de front a dit que nous avions des ordres inconditionnels pour détruire cela </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--				<td> </td>-->
+<!--			</tr>-->
+<!--		  <tr >-->
+<!--			  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--			  <td> </td>-->
+<!--			  <td> </td>-->
+<!--			  <td> les solinats ont des bruits quesiècle et avec un programme </td>-->
+<!--			  <td> le repréjaune occupé nous avons décidé de lensemle détruit pour détruire cela </td>-->
+<!--			  <td> la sociale et dit que nous disons que nous avons dit que nous di continuer cette histoire </td>-->
+<!--			  <td> la solution au début de la dernière solution net déconomer que nous avons décidé de distréminer cet endoi </td>-->
+<!--		  </tr>-->
+
+<!--			<tr >-->
+<!--				  <th></th>-->
+<!--				  <th></th>-->
+<!--				  <th></th>-->
+<!--				  <th colspan="2">10h</th>-->
+<!--				  <th colspan="2">30h</th>-->
+<!--			  </tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Audio-Visual (AV)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--		  <tr >-->
+<!--			<th style=" vertical-align:middle;" width="10%" >Sample 3: </th>-->
+<!--			<th style=" vertical-align:middle;" width="20%" >-->
+<!--				<video  controls style="width: 200px;">-->
+<!--					<source src="avtranspeech_results/En_Fr/task_01/3_source_video.mp4" type="video/mp4">-->
+<!--				</video>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;" >-->
+<!--				<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/3_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_06_10h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_08_10h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_06\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--			  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_08\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--		  </th>-->
+<!--		</tr>-->
+<!--		<tr > -->
+<!--			<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--			<td> we met men where they were at and we built a program </td>-->
+<!--			<td> nous avons rencontré des hommes là où ils étaient et nous avons construit un programme </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--		</tr>-->
+<!--		<tr >-->
+<!--			<th style=" vertical-align:middle;"> ASR: </th>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--			<td> nous avons mantnamps arrivé où nous avons construit le programme  </td>-->
+<!--			<td> nous avons rencontré des hommes oisont alés et que nous construirens un programme </td>-->
+<!--			<td> nous avons rencontré ou nous avons construit un programme et nous avons construit de la programme </td>-->
+<!--			<td> nous avons rencontré des homes ruseta et nous construit un programme </td>-->
+<!--		</tr>-->
+<!--			<tr >-->
+<!--			  <th></th>-->
+<!--			  <th>Source: Visual (V)</th>-->
+<!--			  <th>Target Audio</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--				  <th>/ </th>-->
+<!--				  <th>w / Covost</th>-->
+<!--		  </tr>-->
+<!--		<tr>-->
+<!--		  <th style=" vertical-align:middle;" width="10%">Sample 3: </th>-->
+<!--			<th style=" vertical-align:middle;" width="20%">-->
+<!--				<video  controls style="width: 200px;">-->
+<!--					<source src="avtranspeech_results/En_Fr/task_01/3_source_video_silence.mp4" type="video/mp4">-->
+<!--				</video>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio  controls style="width: 150px;"><source src="avtranspeech_results/En_Fr/task_01/3_gt_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_07_10h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_018\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--				<audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_07\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--			</th>-->
+<!--			<th style=" vertical-align:middle;">-->
+<!--			  <audio controls style="width: 150px;"><source src="avtranspeech_results\En_Fr\task_018_30h\3_syn_translated.wav"          type="audio/wav"></audio>-->
+<!--		  </th>-->
+<!--		</tr>-->
+<!--		<tr > -->
+<!--			<th style=" vertical-align:middle;"> Reference: </th>-->
+<!--			<td> we met men where they were at and we built a program </td>-->
+<!--			<td> nous avons rencontré des hommes là où ils étaient et nous avons construit un programme </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--			<td> </td>-->
+<!--		</tr>-->
+<!--	  <tr >-->
+<!--		  <th style=" vertical-align:middle;"> ASR: </th>-->
+<!--		  <td> </td>-->
+<!--		  <td> </td>-->
+<!--		  <td> nous avons alle en même un temps que ce soit les programmes et que construire le programme </td>-->
+<!--		  <td> nous avons matoment de la mémoie où ils étaient enconstruits partoment </td>-->
+<!--		  <td> nous avons maintenant que nous avons à construite un programme et que nous avons commencé </td>-->
+<!--		  <td> nous avons maintenant que lorsque nous étions deu programme et nous avons été un programme </td>-->
+<!--	  </tr>-->
+
+<!--			</table>-->
+<!--		</div>-->
+<!--		</div>-->
+<!--		</div>-->
+<!--		</div>-->
+<!--	</section>-->
+	
+
+
+</body>
+</html>
+
